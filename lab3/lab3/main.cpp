@@ -8,19 +8,55 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, const char * argv[]) {
+int main() {
+    //MARK: - [-52; 26]
+    int min = -52;
+    int max = 26;
+    int count = 0;
     int sum = 0;
-    int array[5] ={};
     
-    for (int counter = 0; counter <5; counter++) {
-        cout << "введите число для добавления в массив\n";
-        cin >> array[counter];
+    //counting values count
+    for (int minimal = min; minimal <= max; minimal ++) {
+        count++;
+    }
+    int array[count];
+    
+    //filling array
+    for (int counter = 0; counter < count; counter ++) {
+        array[counter] = min;
+        min++;
     }
     
-    for (int counter = 0; counter <5; counter ++) {
-        if (counter % 2 != 0 || counter == 0) {
+    //checking matching values
+    for (int counter = 0; counter < count; counter++) {
+        if ((counter % 2 != 0 && array[counter] % 2 != 0) || counter == 0) {
             sum += array[counter];
         }
     }
-    cout << "\n\t сумма нечетных чисел равна:" << sum << "\n\n";
+    cout << "сумма нечетных значений под нечетными индексами из диапазона [-52; 26] = ";
+    cout << sum << "\n";
+    
+    //MARK: - custom filling
+    int newSum = 0;
+    int arrayCount;
+    
+    //asking for maxIndex(max index wiil be arrayCount - 1)
+    cout << "\nenter values count: ";
+    cin >> arrayCount;
+    int newArray[arrayCount];
+    
+    //filling array
+    for (int counter = 0; counter < arrayCount; counter ++) {
+        cout << "enter a value: ";
+        cin >> newArray[counter];
+    }
+    
+    //checking matching values
+    for (int counter = 0; counter < arrayCount; counter ++) {
+        if ((counter % 2 != 0 && newArray[counter] % 2 != 0) || counter == 0) {
+            newSum += newArray[counter];
+        }
+    }
+    cout << "\nсумма нечетных значений под нечетными индексами из диапазона введенных данных = ";
+    cout << newSum << "\n\n";
 }
