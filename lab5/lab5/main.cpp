@@ -16,7 +16,7 @@ int main() {
     cin >> m;
     cout << endl;
     double a[m][m];
-    
+
     //filling array(creating matrix)
     for(int i=0; i< m; i++) {
         for(int j=0; j<m;j++) {
@@ -27,7 +27,7 @@ int main() {
         cout << endl;
     }
     cout << endl;
-    
+
     //replacing values in matching indexes
     for (int i = 1; i < m; ++i)
     {
@@ -35,7 +35,7 @@ int main() {
             a[i][j] = 0;
         }
     }
-    
+
     //printing matrix
     for (int i=0; i < m ;i++){
         for (int j=0; j < m; j++){
