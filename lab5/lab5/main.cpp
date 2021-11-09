@@ -6,6 +6,8 @@
 //
 
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -20,7 +22,7 @@ int main() {
         for(int j=0; j<m;j++) {
             a[i][j] = rand()%10+1;
             //printing values as matrix
-            cout << a[i][j] << " ";
+            cout << setw(2) << a[i][j] << " ";
         }
         cout << endl;
     }
@@ -37,8 +39,10 @@ int main() {
     //printing matrix
     for (int i=0; i < m ;i++){
         for (int j=0; j < m; j++){
-            cout << a[i][j] << " ";
+            cout << setw(2) << a[i][j] << " ";
         }
         cout << endl;
     }
+    
+    
 }
