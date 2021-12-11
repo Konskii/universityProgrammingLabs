@@ -21,17 +21,13 @@ int main() {
     }
     int array[count];
     
-    //filling array
+    //filling array and checking values
     for (int counter = 0; counter < count; counter ++) {
         array[counter] = min;
-        min++;
-    }
-    
-    //checking matching values
-    for (int counter = 0; counter < count; counter++) {
-        if ((counter % 2 != 0 && array[counter] % 2 != 0) || counter == 0) {
+        if ((counter % 2 != 0 || counter == 0) && array[counter] % 2 != 0) {
             sum += array[counter];
         }
+        min++;
     }
     cout << "сумма нечетных значений под нечетными индексами из диапазона [-52; 26] = ";
     cout << sum << "\n";
@@ -40,23 +36,20 @@ int main() {
     int newSum = 0;
     int arrayCount;
     
-    //asking for maxIndex(max index wiil be arrayCount - 1)
+    //asking for maxIndex
     cout << "\nenter values count: ";
     cin >> arrayCount;
     int newArray[arrayCount];
     
-    //filling array
+    //filling array and checking values
     for (int counter = 0; counter < arrayCount; counter ++) {
         cout << "enter a value: ";
         cin >> newArray[counter];
-    }
-    
-    //checking matching values
-    for (int counter = 0; counter < arrayCount; counter ++) {
-        if ((counter % 2 != 0 && newArray[counter] % 2 != 0) || counter == 0) {
+        if ((counter % 2 != 0 || counter == 0) && newArray[counter] % 2 != 0) {
             newSum += newArray[counter];
         }
     }
-    cout << "\nсумма нечетных значений под нечетными индексами из диапазона введенных данных = ";
+
+    cout << "\nсумма нечетных значений под нечетными индексами = ";
     cout << newSum << "\n\n";
 }
