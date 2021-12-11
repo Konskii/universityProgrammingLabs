@@ -36,11 +36,11 @@ int main() {
     }
     cout << endl;
     
-    //printing min value, his index and adress
+    //printing min value and his adress
     cout << "min value (" << *minPointer << ") in adress: " << minPointer << endl;
     cout << "среднее арифмитическое всех чисел: " << sum / n << endl;
     
-    //replace min value in his index with arithmetical average of all values
+    //replace min value in his adress with arithmetical average of all values
     *minPointer = sum /n;
     cout << "value in adress " << minPointer << " now is: " << *minPointer << endl << endl;
 }
