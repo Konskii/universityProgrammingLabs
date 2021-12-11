@@ -17,7 +17,7 @@ int main() {
     float sum = 0;
     
     //filling array
-    for (float *ptr = &array[0]; ptr <= &array[n]; ptr ++) {
+    for (float *ptr = &array[0]; ptr < &array[n]; ptr ++) {
         cout << "enter a value: ";
         cin >> *ptr;
         sum += *ptr;
@@ -26,7 +26,7 @@ int main() {
     
     //finding min value
     float *minPointer = &array[0];
-    for (float *ptr = &array[0]; ptr <= &array[n]; ptr ++) {
+    for (float *ptr = &array[0]; ptr < &array[n]; ptr ++) {
         if (*ptr < *minPointer) {
             minPointer = ptr;
         }
