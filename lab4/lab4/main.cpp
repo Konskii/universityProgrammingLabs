@@ -13,30 +13,30 @@ int main() {
     cout << "enter values count: ";
     cin >> n;
     float *array = new float[n];
+    float sum = 0;
     
     //filling array
-    for (int counter = 0; counter < n; counter ++) {
+    for (float *ptr = &array[0]; ptr <= &array[n]; ptr ++) {
         cout << "enter a value: ";
-        cin >> array[counter];
+        cin >> *ptr;
+        sum += *ptr;
     }
+    cout << endl;
     
-    //finding min value in array and his index
-    float *minPointer;
-    minPointer = &array[0];
-    float sum = 0;
-    for (int counter = 0; counter < n; counter ++) {
-        sum += array[counter];
-        if (array[counter] < *minPointer) {
-            minPointer = &array[counter];
+    //finding min value
+    float *minPointer = &array[0];
+    for (float *ptr = &array[0]; ptr <= &array[n]; ptr ++) {
+        if (*ptr < *minPointer) {
+            minPointer = ptr;
         }
     }
     
     //printing min value, his index and adress
-    cout << "min value (" << *minPointer << ") in adress: " << minPointer << "\n";
-    cout << "среднее арифмитическое всех чисел: " << sum / n << "\n";
+    cout << "min value (" << *minPointer << ") in adress: " << minPointer << endl;
+    cout << "среднее арифмитическое всех чисел: " << sum / n << endl;
     
     //replace min value in his index with arithmetical average of all values
     *minPointer = sum /n;
-    cout << "value in adress " << minPointer << " now is: " << *minPointer << "\n";
+    cout << "value in adress " << minPointer << " now is: " << *minPointer << endl << endl;
 }
 
