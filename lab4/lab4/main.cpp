@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main() {
     //creating aray
@@ -38,5 +39,11 @@ int main() {
     //replace min value in his index with arithmetical average of all values
     *minPointer = sum /n;
     cout << "value in adress " << minPointer << " now is: " << *minPointer << endl << endl;
+    
+    for (float *ptr = &array[0]; ptr <= &array[n]; ptr ++) {
+        if (fmod(*ptr, float(2)) == 0) {
+            cout << "адресс четного числа(" << *ptr << "): " << ptr << endl;
+        }
+    }
 }
 
