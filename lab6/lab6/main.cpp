@@ -6,69 +6,64 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
-    string a;
-    //checking string entered by user
-    while(true) {
-        cout << "Введите строку:";
-        getline(cin, a);
-        if (cin.fail() || a.length() > 80) {
-            cin.clear();
-            cout << "Введеная вами строка некоректна, попробуйте еще раз." << endl << endl;
-        } else {
-            break;
-        }
-    }
+    //MARK: - Проверка на корректность введенной строки
+    string str;
+    cout << "Введите строку: ";
+    getline(cin, str);
     
-    //counting words
-    int wordsCount = 0;
-    for (char *ptr = &a[0]; ptr < &a[a.length()]; ++ptr){
-        if (isalpha(*ptr)) {
-            while (*ptr != ' ') {
-                ptr++;
-            }
-            if (*ptr == ' ') {
-                wordsCount ++;
-            }
-        }
-    }
-    cout << "Количество слов: " << wordsCount << endl;
-    
-    //marking array of words
-    string *arrayOfWords = new string[wordsCount];
+    //MARK: - Разбивка строки на слова
+    string tempStr = "";
+    vector<string> words = {};
     int i = 0;
-    string tempString;
-    for (char *str = &a[0]; str < &a[a.length()]; str++) {
-        string tempString;
-        while (isalpha(*str)) {
-            tempString += *str;
-            str++;
+    
+    while (i < str.length()) {
+
+        if (str[i] == ' ') {
+            tempStr = "";
+            i++;
         }
-        arrayOfWords[i] = tempString;
-        i++;
+        
+        if (str[i] != ' ') {
+            while (str[i] != ' ' && i < str.length()) {
+                tempStr += str[i];
+                if (str[i] == ' ') {
+                    break;
+                }
+                i++;
+            }
+            //Работаем с полученным словом:
+            if (tempStr != "" && tempStr != " ") {
+                words.push_back(tempStr);
+            }
+        }
     }
     
-    //finding smaller word
-    string smallerWord = arrayOfWords[0];
-    for (string *str = &arrayOfWords[0]; str < &arrayOfWords[wordsCount]; str ++) {
-        if (str->length() < smallerWord.length()) {
-            smallerWord = *str;
+    //TODO: добавить проверку на наличие слов
+    //MARK: - Поиск меньшего слова
+    string smallerWord = words[0];
+    int smallerIndex = 0;
+    for (int counter = 0; counter < words.size(); counter++) {
+        if (words[counter].length() < smallerWord.length()) {
+            smallerWord = words[counter];
+            smallerIndex = counter;
         }
     }
+    cout << "Меньшее слово: " << smallerWord << endl;
     
-    cout << "меньшее слово: " << smallerWord << endl;
-    cout << "слова большие меньшего слова:" << endl;
-    
+    //MARK: - Вывод больших слов
+    cout << "Слова которые больше чем '" << smallerWord << "'" << endl;
     int biggerWordsCount = 0;
-    for (string *str = &arrayOfWords[0]; str < &arrayOfWords[wordsCount]; str ++) {
-        if (str->length() > smallerWord.length()) {
-            cout << "\t" << *str << endl;
+    for (int counter = 0; counter < words.size(); counter++) {
+        if (counter != smallerIndex &&
+            words[counter].length() != smallerWord.length()) {
+            cout << words[counter] << endl;
             biggerWordsCount++;
         }
     }
-    
-    cout << "количество слов которые больше меньшего слова: " << biggerWordsCount << endl;
+    cout << "Количество больших слов: " << biggerWordsCount << endl;
     
 }
