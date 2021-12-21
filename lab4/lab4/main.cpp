@@ -24,6 +24,7 @@ int main() {
     }
     cout << endl;
     
+    int needCount = 0;
     //finding min value
     float *minPointer = &array[0];
     for (float *ptr = &array[0]; ptr < &array[n]; ptr ++) {
@@ -32,9 +33,12 @@ int main() {
         }
         if (fmod(*ptr, float(2)) == 0) {
             cout << "адресс четного числа(" << *ptr << "): " << ptr << endl;
+            needCount++;
         }
     }
-    cout << endl;
+    if (needCount == 0) {
+        cout << "четных чисел нет" << endl << endl;
+    }
     
     //printing min value and his adress
     cout << "min value (" << *minPointer << ") in adress: " << minPointer << endl;
@@ -43,5 +47,7 @@ int main() {
     //replace min value in his adress with arithmetical average of all values
     *minPointer = sum /n;
     cout << "value in adress " << minPointer << " now is: " << *minPointer << endl << endl;
+
+    
 }
 
