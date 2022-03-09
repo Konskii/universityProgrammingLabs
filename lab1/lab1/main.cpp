@@ -157,11 +157,16 @@ int main() {
     //Task2: Задан массив структур «Студент» (фамилия; имя; пол; вложенная структура дата рождения в формате день:месяц:год). Вы- вести фамилии студентов, подлежащих призыву.
     cout << "-------------Task2" << endl;
     cout << "Студенты, подлежащие призыву:" << endl;
+    bool isFindStudents = false;
     for (int i = 0; i < 10; i++) {
         Student student = students[i];
         if ((calculateAge(student.birthDate) >= 18) && student.gender == manGender) {
             cout << student.secondName << endl;
+            isFindStudents = true;
         }
+    }
+    if (!isFindStudents) {
+        cout << "Нет студентов подлежащих призыву." << endl;
     }
     cout << endl;
     //Task3(вариант 13): Задан массив структур «Тур» (наименование тура; страна; продолжительность; стоимость; количество свободных путе- вок). Вывести на экран список туров, имеющихся в наличии.
