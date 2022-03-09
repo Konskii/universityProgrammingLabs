@@ -26,6 +26,7 @@
 		ACD6870027D8622C00FCDD1D /* lab1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lab1; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD6870327D8622C00FCDD1D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ACD6870D27D8636800FCDD1D /* Student.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Student.h; sourceTree = "<group>"; };
+		ACD6870E27D8711100FCDD1D /* Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			children = (
 				ACD6870327D8622C00FCDD1D /* main.cpp */,
 				ACD6870D27D8636800FCDD1D /* Student.h */,
+				ACD6870E27D8711100FCDD1D /* Date.h */,
 			);
 			path = lab1;
 			sourceTree = "<group>";

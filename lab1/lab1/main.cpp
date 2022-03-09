@@ -6,24 +6,100 @@
 //
 
 #include <iostream>
-#include <string.h>
+#include "Date.h"
 #include "Student.h"
+#include <ctime>
 using namespace std;
 
+int calculateAge(Date birthDate) {
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    Date currentDate = {
+        .day = now->tm_mday,
+        .month = now->tm_mon+1,
+        .year = now->tm_year + 1900
+    };
+    
+    int age = currentDate.year - birthDate.year;
+    if (currentDate.month > birthDate.month) {
+        age--;
+    } else if (currentDate.month == birthDate.month) {
+        if (currentDate.day > birthDate.day) {
+            age--;
+        }
+    }
+    return age;
+}
+
 int main() {
+    string manGender = "Мужчина";
+    string girlGender = "Женщина";
+    Date goodDate = Date{.day = 11, .month = 3, .year = 2006};
+    Date badDate = Date{.day = 1, .month = 6, .year = 1992};
+    
     Student students[10] = {
-        Student{.name =  "Name1", .secondName = "SecondName1", .score = 299},
-        Student{.name =  "Name2", .secondName = "SecondName2", .score = 199},
-        Student{.name =  "Name3", .secondName = "SecondName3", .score = 229},
-        Student{.name =  "Name4", .secondName = "SecondName4", .score = 99},
-        Student{.name =  "Name5", .secondName = "SecondName5", .score = 259},
-        Student{.name =  "Name6", .secondName = "SecondName6", .score = 149},
-        Student{.name =  "Name7", .secondName = "SecondName7", .score = 49},
-        Student{.name =  "Name8", .secondName = "SecondName8", .score = 140},
-        Student{.name =  "Name9", .secondName = "SecondName9", .score = 299},
-        Student{.name =  "Name10", .secondName = "SecondName10", .score = 299},
+        Student{.name =  "Name1",
+                .secondName = "SecondName1",
+                .score = 299,
+                .gender = manGender,
+                .birthDate = goodDate
+        },
+        Student{.name =  "Name2",
+                .secondName = "SecondName2",
+                .score = 199,
+                .gender = manGender,
+                .birthDate = badDate
+        },
+        Student{.name =  "Name3",
+                .secondName = "SecondName3",
+                .score = 229,
+                .gender = girlGender,
+                .birthDate = goodDate
+        },
+        Student{.name =  "Name4",
+                .secondName = "SecondName4",
+                .score = 99,
+                .gender = girlGender,
+                .birthDate = goodDate
+        },
+        Student{.name =  "Name5",
+                .secondName = "SecondName5",
+                .score = 259,
+                .gender = girlGender,
+                .birthDate = badDate
+        },
+        Student{.name =  "Name6",
+                .secondName = "SecondName6",
+                .score = 149,
+                .gender = manGender, .birthDate = badDate
+        },
+        Student{.name =  "Name7",
+                .secondName = "SecondName7",
+                .score = 49,
+                .gender = girlGender,
+                .birthDate = badDate
+        },
+        Student{.name =  "Name8",
+                .secondName = "SecondName8",
+                .score = 140,
+                .gender = girlGender,
+                .birthDate = badDate
+        },
+        Student{.name =  "Name9",
+                .secondName = "SecondName9",
+                .score = 299,
+                .gender = manGender,
+                .birthDate = goodDate
+        },
+        Student{.name =  "Name10",
+                .secondName = "SecondName10",
+                .score = 299,
+                .gender = girlGender,
+                .birthDate = badDate
+        }
     };
     //Task1: Вывести на экран результаты поиска: студента с максимальной суммой баллов; студента с указанной фамилией.
+    cout << "-------------Task1" << endl;
     cout << "Введите фамилию для поиска: ";
     string searchSecondName;
     bool isFind = false;
@@ -77,4 +153,13 @@ int main() {
         }
     }
     
+    //Task2: Задан массив структур «Студент» (фамилия; имя; пол; вложенная структура дата рождения в формате день:месяц:год). Вы- вести фамилии студентов, подлежащих призыву.
+    cout << "-------------Task2" << endl;
+    cout << "Студенты, подлежащие призыву:" << endl;
+    for (int i = 0; i < 10; i++) {
+        Student student = students[i];
+        if ((calculateAge(student.birthDate) >= 18) && student.gender == manGender) {
+            cout << student.secondName << endl;
+        }
+    }
 }
