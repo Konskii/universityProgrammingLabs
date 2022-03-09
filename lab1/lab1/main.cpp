@@ -10,6 +10,7 @@
 #include "Student.h"
 #include <ctime>
 #include "Tour.h"
+#include <iomanip>
 using namespace std;
 
 int calculateAge(Date birthDate) {
@@ -30,6 +31,10 @@ int calculateAge(Date birthDate) {
         }
     }
     return age;
+}
+
+template<typename T> void tableOut(T text) {
+    cout << left << setw(15)  << setfill(' ') << text;
 }
 
 int main() {
@@ -185,12 +190,26 @@ int main() {
     };
     
     int avalaibleToursCount = 0;
+    cout << "Список всех туров:" << endl;
+    tableOut("Name");
+    tableOut("Country");
+    tableOut("Duration");
+    tableOut("Avalaible");
+    tableOut("Cost");
+    cout << endl;
     for (int i = 0; i < 10; i++) {
         Tour tour = tours[i];
+        tableOut(tour.name);
+        tableOut(tour.country);
+        tableOut(tour.duration);
+        tableOut(tour.avalaibleCount);
+        tableOut(tour.cost);
+        cout << endl;
         if (tour.avalaibleCount > 0) {
             avalaibleToursCount++;
         }
     }
+    cout << endl;
     Tour avalaibleTours[avalaibleToursCount];
     int a = 0;
     for (int i = 0; i < 10; i++) {
@@ -204,14 +223,20 @@ int main() {
         cout << "Нет доступных туров" << endl;
     } else {
         cout << "Доступные туры:" << endl;
+        tableOut("Name");
+        tableOut("Country");
+        tableOut("Duration");
+        tableOut("Avalaible");
+        tableOut("Cost");
+        cout << endl;
         for (int i = 0; i < avalaibleToursCount; i++) {
             Tour tour = avalaibleTours[i];
-            cout << "Название тура:"  << tour.name << endl;
-            cout << "Страна тура:"  << tour.country << endl;
-            cout << "Длительность тура:"  << tour.duration << endl;
-            cout << "Количество доступных путевок:"  << tour.avalaibleCount << endl;
-            cout << "Стоимость тура:"  << tour.cost << endl << endl;;
+            tableOut(tour.name);
+            tableOut(tour.country);
+            tableOut(tour.duration);
+            tableOut(tour.avalaibleCount);
+            tableOut(tour.cost);
+            cout << endl;
         }
     }
-    
 }
