@@ -27,6 +27,7 @@
 		ACD6870327D8622C00FCDD1D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ACD6870D27D8636800FCDD1D /* Student.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Student.h; sourceTree = "<group>"; };
 		ACD6870E27D8711100FCDD1D /* Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
+		ACD6870F27D877E200FCDD1D /* Tour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tour.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				ACD6870327D8622C00FCDD1D /* main.cpp */,
 				ACD6870D27D8636800FCDD1D /* Student.h */,
 				ACD6870E27D8711100FCDD1D /* Date.h */,
+				ACD6870F27D877E200FCDD1D /* Tour.h */,
 			);
 			path = lab1;
 			sourceTree = "<group>";

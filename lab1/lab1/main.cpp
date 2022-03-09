@@ -9,6 +9,7 @@
 #include "Date.h"
 #include "Student.h"
 #include <ctime>
+#include "Tour.h"
 using namespace std;
 
 int calculateAge(Date birthDate) {
@@ -162,4 +163,50 @@ int main() {
             cout << student.secondName << endl;
         }
     }
+    cout << endl;
+    //Task3(вариант 13): Задан массив структур «Тур» (наименование тура; страна; продолжительность; стоимость; количество свободных путе- вок). Вывести на экран список туров, имеющихся в наличии.
+    cout << "-------------Task3" << endl;
+    Tour tours[10] = {
+        Tour{.name = "Tour1", .country = "Country", .duration = 5.5, .avalaibleCount = 0},
+        Tour{.name = "Tour2", .country = "Country", .duration = 12.5, .avalaibleCount = 0},
+        Tour{.name = "Tour3", .country = "Country", .duration = 124, .avalaibleCount = 0},
+        Tour{.name = "Tour4", .country = "Country", .duration = 214, .avalaibleCount = 10},
+        Tour{.name = "Tour5", .country = "Country", .duration = 1245, .avalaibleCount = 0},
+        Tour{.name = "Tour6", .country = "Country", .duration = 10, .avalaibleCount = 0},
+        Tour{.name = "Tour7", .country = "Country", .duration = 11, .avalaibleCount = 15},
+        Tour{.name = "Tour8", .country = "Country", .duration = 5, .avalaibleCount = 0},
+        Tour{.name = "Tour9", .country = "Country", .duration = 51, .avalaibleCount = 0},
+        Tour{.name = "Tour10", .country = "Country", .duration = 55, .avalaibleCount = 1},
+    };
+    
+    int avalaibleToursCount = 0;
+    for (int i = 0; i < 10; i++) {
+        Tour tour = tours[i];
+        if (tour.avalaibleCount > 0) {
+            avalaibleToursCount++;
+        }
+    }
+    Tour avalaibleTours[avalaibleToursCount];
+    int a = 0;
+    for (int i = 0; i < 10; i++) {
+        Tour tour = tours[i];
+        if (tour.avalaibleCount > 0) {
+            avalaibleTours[a] = tour;
+            a++;
+        }
+    }
+    if (avalaibleToursCount == 0) {
+        cout << "Нет доступных туров" << endl;
+    } else {
+        cout << "Доступные туры:" << endl;
+        for (int i = 0; i < avalaibleToursCount; i++) {
+            Tour tour = avalaibleTours[i];
+            cout << "Название тура:"  << tour.name << endl;
+            cout << "Страна тура:"  << tour.country << endl;
+            cout << "Длительность тура:"  << tour.duration << endl;
+            cout << "Количество доступных путевок:"  << tour.avalaibleCount << endl;
+            cout << "Стоимость тура:"  << tour.cost << endl << endl;;
+        }
+    }
+    
 }
