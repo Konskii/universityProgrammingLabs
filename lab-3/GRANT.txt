@@ -1,0 +1,12 @@
+Ivanov Ivan 100 100 100
+Leonov Leon 60 89 90
+Dmitriev Dmitriy 90 100 99
+Grigiriev Grigorii 100 100 100
+Gavrilov Gavriil 100 100 100
+Danilov Danil 100 100 100
+Kirillov Kirill 82 82 82
+Maximov Maxim 100 100 100
+Andreev Andrey 80 80 80
+Artemov Artem 80 80 80
+Rodionov Rodion 100 100 100
+Semenov Semen 100 100 100
