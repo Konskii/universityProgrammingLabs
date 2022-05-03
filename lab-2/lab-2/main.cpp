@@ -119,5 +119,122 @@ int main() {
     dataTypesStream << setw(40) << numeric_limits<long double>::min();
     
     dataTypesStream.close();
+    
+    //MARK: - Задание 3(вариант 13)
+    fstream input1Stream;
+    fstream input2Stream;
+    fstream output1Stream;
+    fstream output2Stream;
+    try {
+        input1Stream.open(
+                          "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/input1.txt",
+                          iostream::in
+                          );
+    } catch (...) {
+        cout << "Не удалось открыть файл input1.txt" << endl;
+        return 4;
+    }
+    try {
+        input2Stream.open(
+                          "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/input2.txt",
+                          iostream::in
+                          );
+    } catch (...) {
+        cout << "Не удалось открыть файл input2.txt" << endl;
+        return 5;
+    }
+    try {
+        output1Stream.open(
+                          "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/output1.txt",
+                          iostream::out
+                          );
+    } catch (...) {
+        
+        cout << "Не удалось открыть файл output1.txt" << endl;
+        return 6;
+    }
+    try {
+        output2Stream.open(
+                          "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/output2.txt",
+                          iostream::out
+                          );
+    } catch (...) {
+        cout << "Не удалось открыть файл output2.txt" << endl;
+        return 7;
+    }
+    
+    int input1NumbersCount = 0;
+    int input2NumbersCount = 0;
+    while (!input1Stream.eof()) {
+        int i;
+        input1Stream >> i;
+        if (!input1Stream.eof()) {
+            input1NumbersCount++;
+        }
+    }
+    while (!input2Stream.eof()) {
+        int i;
+        input2Stream >> i;
+        if (!input2Stream.eof()) {
+            input2NumbersCount++;
+        }
+    }
+    
+    int *input1Numbers = new int[input1NumbersCount];
+    input1Stream.close();
+    input1Stream.open(
+                      "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/input1.txt",
+                      iostream::in
+                      );
+    for (int i = 0; i < input1NumbersCount; i++) {
+        int a;
+        input1Stream >> a;
+        input1Numbers[i] = a;
+    }
+    
+    int *input2Numbers = new int[input2NumbersCount];
+    input2Stream.close();
+    input2Stream.open(
+                      "/Users/artem/Projects/universityProgrammingLabs/lab-2/Temp/individualTask/input2.txt",
+                      iostream::in
+                      );
+    for (int i = 0; i < input2NumbersCount; i++) {
+        int a;
+        input2Stream >> a;
+        input2Numbers[i] = a;
+    }
+    
+    int output1NumbersCount = 0;
+    for (int *ptr = &input1Numbers[0]; ptr < &input1Numbers[input1NumbersCount]; ptr++) {
+        bool isSame = false;
+        for (int *ptr2 = &input2Numbers[0]; ptr2 < &input2Numbers[input2NumbersCount]; ptr2++) {
+            if (*ptr2 == *ptr) {
+                isSame = true;
+            }
+        }
+        if (!isSame) {
+            output1Stream << *ptr << endl;
+            output1NumbersCount++;
+        }
+    }
+    output1Stream << "Количество чисел: " << output1NumbersCount;
+    output1Stream.close();
+    
+    int output2NumbersCount = 0;
+    for (int *ptr = &input2Numbers[0]; ptr < &input2Numbers[input2NumbersCount]; ptr++) {
+        bool isSame = false;
+        for (int *ptr2 = &input1Numbers[0]; ptr2 < &input1Numbers[input1NumbersCount]; ptr2++) {
+            if (*ptr2 == *ptr) {
+                isSame = true;
+            }
+        }
+        if (!isSame) {
+            output2Stream << *ptr << endl;
+            output2NumbersCount++;
+        }
+    }
+    output2Stream << "Количество чисел: " << output2NumbersCount;
+    output2Stream.close();
+    
     return 0;
 }
