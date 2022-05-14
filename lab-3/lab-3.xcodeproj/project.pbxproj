@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC5A637628211D1D009468FF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC5A637528211D1D009468FF /* main.cpp */; };
+		ACF29E8B282FAC6000614841 /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACF29E89282FAC6000614841 /* Date.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		AC5A637228211D1D009468FF /* lab-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A637528211D1D009468FF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ACF29E89282FAC6000614841 /* Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Date.cpp; sourceTree = "<group>"; };
+		ACF29E8A282FAC6000614841 /* Date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 		AC5A636928211D1D009468FF = {
 			isa = PBXGroup;
 			children = (
+				ACF29E88282FAC2900614841 /* Models */,
 				AC5A637428211D1D009468FF /* lab-3 */,
 				AC5A637328211D1D009468FF /* Products */,
 			);
@@ -60,6 +64,15 @@
 				AC5A637528211D1D009468FF /* main.cpp */,
 			);
 			path = "lab-3";
+			sourceTree = "<group>";
+		};
+		ACF29E88282FAC2900614841 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACF29E89282FAC6000614841 /* Date.cpp */,
+				ACF29E8A282FAC6000614841 /* Date.hpp */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5A637628211D1D009468FF /* main.cpp in Sources */,
+				ACF29E8B282FAC6000614841 /* Date.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +254,7 @@
 		AC5A637A28211D1D009468FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4U7S58J4L;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -250,6 +265,7 @@
 		AC5A637B28211D1D009468FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4U7S58J4L;
 				ENABLE_HARDENED_RUNTIME = YES;
