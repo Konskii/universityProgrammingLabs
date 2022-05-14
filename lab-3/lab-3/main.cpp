@@ -15,18 +15,18 @@ int main() {
     fstream grantStream;
     try {
         studentStream.open(
-                            "/Users/artem/Projects/universityProgrammingLabs/lab-3/STUDENT.txt",
+                           "/Users/artem/Projects/universityProgrammingLabs/lab-3/STUDENT.txt",
                            iostream::in
-                            );
+                           );
     } catch (...) {
         cout << "Ошибка открытия файла STUDENT.txt" << endl;
         return 1;
     }
     try {
         grantStream.open(
-                            "/Users/artem/Projects/universityProgrammingLabs/lab-3/GRANT.txt",
-                           iostream::out
-                            );
+                         "/Users/artem/Projects/universityProgrammingLabs/lab-3/GRANT.txt",
+                         iostream::out
+                         );
     } catch (...) {
         cout << "Ошибка открытия/создания файла GRANT.txt" << endl;
         return 2;
