@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ACBF39282A4571E00087E607 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACBF39272A4571E00087E607 /* main.cpp */; };
+		ACBF39322A4592100087E607 /* personalTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACBF39312A4592100087E607 /* personalTask.cpp */; };
+		ACBF39362A4592320087E607 /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACBF39342A4592320087E607 /* Book.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		ACBF39242A4571E00087E607 /* control-task */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "control-task"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBF39272A4571E00087E607 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ACBF392E2A45901D0087E607 /* sharedTask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sharedTask.cpp; sourceTree = "<group>"; };
+		ACBF39312A4592100087E607 /* personalTask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = personalTask.cpp; sourceTree = "<group>"; };
+		ACBF39342A4592320087E607 /* Book.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		ACBF39352A4592320087E607 /* Book.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Book.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,29 @@
 		ACBF39262A4571E00087E607 /* control-task */ = {
 			isa = PBXGroup;
 			children = (
+				ACBF39302A4591FF0087E607 /* personalTask */,
 				ACBF39272A4571E00087E607 /* main.cpp */,
+				ACBF392E2A45901D0087E607 /* sharedTask.cpp */,
 			);
 			path = "control-task";
+			sourceTree = "<group>";
+		};
+		ACBF39302A4591FF0087E607 /* personalTask */ = {
+			isa = PBXGroup;
+			children = (
+				ACBF39332A4592290087E607 /* Models */,
+				ACBF39312A4592100087E607 /* personalTask.cpp */,
+			);
+			path = personalTask;
+			sourceTree = "<group>";
+		};
+		ACBF39332A4592290087E607 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACBF39342A4592320087E607 /* Book.cpp */,
+				ACBF39352A4592320087E607 /* Book.hpp */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBF39362A4592320087E607 /* Book.cpp in Sources */,
+				ACBF39322A4592100087E607 /* personalTask.cpp in Sources */,
 				ACBF39282A4571E00087E607 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
