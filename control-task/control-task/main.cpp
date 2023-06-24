@@ -6,13 +6,14 @@
 //
 #include <cstring>
 #include "sharedTask.cpp"
+#include "personalTask/personalTask.cpp"
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     if (strcmp(argv[1], "-shared") == 0) {
         performSharedTask();
     } else if (strcmp(argv[1], "-personal") == 0) {
-
+        performPersonalTask();
     }
     return 0;
 }
