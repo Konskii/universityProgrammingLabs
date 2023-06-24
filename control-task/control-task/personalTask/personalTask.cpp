@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Book.h"
+#include <fstream>
 #include <vector>
 using namespace std;
 
@@ -32,10 +33,30 @@ void performPersonalTask() {
     }
 
     cout << "Результаты фильтрации: \n";
+
+    // MARK: - подготавливаем файл
+    string filePath = "/Users/artem/Projects/universityProgrammingLabs/control-task/Temp/data.txt";
+    fstream dataStream;
+    try {
+        dataStream.open(
+                        filePath,
+                        ios::out
+                        );
+    } catch(...) {
+        cout << "Ошибка открытия файла data.txt" << endl;
+    }
+
     for (int i = 0; i < filteredBooks.size(); i++) {
         Book book = filteredBooks[i];
+        // console
         cout << "Автор: " << book.author
-             << ", Название: " << book.name
-             << ", Год: " << book.yearOfProduce << "\n";
+        << ", Название: " << book.name
+        << ", Год: " << book.yearOfProduce << endl;
+
+        // file
+        dataStream << setiosflags(ios::left) << setw(25) << book.author;
+        dataStream << setw(30) << book.name;
+        dataStream << setw(40) << book.yearOfProduce << endl;
     }
+    dataStream.close();
 }
